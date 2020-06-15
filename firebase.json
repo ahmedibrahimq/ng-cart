@@ -1,0 +1,19 @@
+{
+  "hosting": [
+    {
+      "target": "shopping-cart",
+      "public": "dist/shopping-cart",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ]
+    }
+  ]
+}
