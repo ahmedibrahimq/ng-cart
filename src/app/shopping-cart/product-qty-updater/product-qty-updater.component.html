@@ -1,0 +1,5 @@
+<div style="align-content: space-between;display: flex;align-items: center;text-align: center;">
+  <button (click)="dec()" mat-flat-button color="primary">-</button>
+  <span [style.width.%]="100">{{countInCart}}<span class="hidden sm:inline">&nbsp;in cart</span></span>
+  <button (click)="inc()" mat-flat-button color="primary">+</button>
+</div>
