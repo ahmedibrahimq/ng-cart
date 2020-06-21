@@ -1,5 +1,4 @@
-<ul>
-  <li *ngFor="let item of items | async">
-    {{item.title}} = {{item.price | currency}}
-  </li>
-</ul>
+<app-header></app-header>
+<div class="container px-5 py-24 mx-auto">
+  <router-outlet></router-outlet>
+</div>

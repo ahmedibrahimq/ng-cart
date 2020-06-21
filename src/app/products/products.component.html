@@ -1,0 +1,11 @@
+<div class="flex flex-col sm:flex-row  items-start mx-auto">
+  <div class="w-full max-w-xs mx-auto flex-shrink-0 sm:w-1/5 focus:outline-none mb-10 sm:mb-0">
+    <input [ngStyle]="{'line-height.rem':3}" class="w-full block border rounded px-5 mb-1"
+      [placeholder]="'Search ' + category + ' products'" type="search" (input)="search($event.target.value)" />
+    <app-categories-list (categoryChanged)="filter($event)" [style.min-width.px]="140"
+      class="w-full max-w-xs mx-auto flex-shrink-0 sm:w-1/5 focus:outline-none mb-10 sm:mb-0">
+    </app-categories-list>
+  </div>
+  <app-products-list [products]="filteredProducts" class="flex-grow sm:ml-16"></app-products-list>
+</div>
+<!-- py-2 px-8 -->

@@ -1,0 +1,8 @@
+<mat-button-toggle-group vertical class="w-full" name="categories" aria-label="Products categories">
+  <mat-button-toggle (click)="current='all'">
+    All Categories
+  </mat-button-toggle>
+  <mat-button-toggle (click)="current=category" *ngFor="let category of categories | async">
+    {{category | titlecase}}
+  </mat-button-toggle>
+</mat-button-toggle-group>
