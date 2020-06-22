@@ -12,24 +12,23 @@ import { MaterialModule } from './material/material.module';
 import { environment } from '../environments/environment';
 import { HeaderComponent } from './header/header.component';
 import { SharedModule } from './shared/shared.module';
+import { CheckoutModule } from './checkout/checkout.module';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HeaderComponent
-  ],
+  declarations: [AppComponent, HeaderComponent],
   imports: [
     BrowserModule,
     SharedModule,
     MaterialModule,
     ProductsModule,
     ShoppingCartModule,
+    CheckoutModule,
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

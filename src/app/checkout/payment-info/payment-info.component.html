@@ -1,0 +1,29 @@
+<form class="relative w-full mb-4">
+  <div *ngIf="free" class="absolute inset-0 bg-white opacity-50"></div>
+  <h1 class="text-md font-medium mb-2 text-gray-900">Payment information</h1>
+  <div class="">
+    <label class="block text-sm" for="name_on_card">Name on card</label>
+    <input class="w-full px-2 py-2 text-gray-700 border rounded" id="name_on_card" name="name_on_card" type="text"
+      required="" placeholder="CARDHOLDER NAME" aria-label="Name">
+  </div>
+  <div class="mt-2">
+    <label class=" block text-sm" for="card_number">Card number</label>
+    <input class="w-full px-2 py-2 text-gray-700 border rounded" id="card_number" name="card_number" type="text"
+      required="" placeholder="XXXX-XXXX-XXXX-XXXX" aria-label="Card">
+  </div>
+  <div class="inline-block mt-2 w-1/3 pr-1">
+    <label class="block text-sm" for="exp_month">Exp month</label>
+    <input class="w-full px-2 py-2 text-gray-700 border rounded" id="exp_month" name="exp_month" type="text" required=""
+      placeholder="mm" aria-label="Month">
+  </div>
+  <div class="inline-block mt-2 -mx-1 pl-1 w-1/3">
+    <label class="block text-sm" for="exp_year">Exp year</label>
+    <input class="w-full px-2 py-2 text-gray-700 border rounded" id="exp_year" name="exp_year" type="text" required=""
+      placeholder="yy" aria-label="year">
+  </div>
+  <div class="block mt-2 -mx-1 pl-1 w-1/3">
+    <label class="block text-sm" for="cvc">CVC</label>
+    <input class="w-full px-2 py-2 text-gray-700 border rounded" id="cvc" name="cvc" type="password" required=""
+      placeholder="***" aria-label="CVC">
+  </div>
+</form>
