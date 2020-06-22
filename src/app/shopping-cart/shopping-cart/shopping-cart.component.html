@@ -1,6 +1,5 @@
 <h1 class="text-4xl mb-6">Shopping Cart</h1>
-<div *ngIf="!cart || !cart.length">Your cart is empty. <a [routerLink]="'/'" [style.color]="'blue'">Start shopping</a>.
-</div>
+<app-empty-cart-alert [display]="!cart || !cart.length"></app-empty-cart-alert>
 <div *ngIf="cart && cart.length" class=" max-w-screen-lg mx-auto p-6 border clearfix">
   <table mat-table [dataSource]="cart" class="mb-6 w-full">
     <!-- Item Column -->
@@ -27,6 +26,5 @@
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     <tr mat-footer-row *matFooterRowDef="displayedColumns"></tr>
   </table>
-  <button class="float-right" mat-flat-button color="primary">Check Out</button>
-
+  <a [routerLink]="'/checkout'" class="float-right" mat-flat-button color="primary">Check Out</a>
 </div>
