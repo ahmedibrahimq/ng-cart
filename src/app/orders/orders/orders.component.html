@@ -1,0 +1,34 @@
+<h1 class="text-2xl sm:text-4xl mb-6 font-medium">My Orders</h1>
+<mat-accordion class="max-w-screen-lg mx-auto">
+  <mat-expansion-panel *ngFor="let order of orders">
+    <mat-expansion-panel-header>
+      <mat-panel-title class="sm:w-1/4">
+        {{order.key}}
+      </mat-panel-title>
+      <mat-panel-description>
+        {{itemsCount(order)}}&nbsp;{{itemsCount(order) > 1 ? 'items' : 'item'}}.&nbsp;<span
+          class="hidden sm:inline">Click for details and downloads</span>
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+
+    <mat-list>
+      <div *ngFor="let item of order.items">
+        <mat-list-item>
+          <span class="w-1/3">{{item.quantity}} x {{item.title}}</span>
+          <span class="w-1/3">{{item.unitPrice * item.quantity | currency}}</span>
+          <button mat-button color="primary">Download</button>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+      </div>
+      <mat-list-item>
+        <span class="w-1/3">Total</span>
+        <span class="w-1/3">{{totalPrice(order) | currency}}</span>
+        <button mat-button disabled class="invisible" color="primary">Download</button>
+
+      </mat-list-item>
+    </mat-list>
+    <mat-action-row>
+      <button mat-button color="primary">Download All</button>
+    </mat-action-row>
+  </mat-expansion-panel>
+</mat-accordion>

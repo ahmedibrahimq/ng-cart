@@ -13,6 +13,7 @@ import { environment } from '../environments/environment';
 import { HeaderComponent } from './header/header.component';
 import { SharedModule } from './shared/shared.module';
 import { CheckoutModule } from './checkout/checkout.module';
+import { OrdersModule } from './orders/orders.module';
 
 @NgModule({
   declarations: [AppComponent, HeaderComponent],
@@ -23,6 +24,7 @@ import { CheckoutModule } from './checkout/checkout.module';
     ProductsModule,
     ShoppingCartModule,
     CheckoutModule,
+    OrdersModule,
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
