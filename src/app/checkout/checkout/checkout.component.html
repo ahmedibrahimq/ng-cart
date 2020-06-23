@@ -1,5 +1,6 @@
 <h1 class="text-2xl sm:text-4xl mb-2 font-medium">Checkout</h1>
-<app-empty-cart-alert [display]="!cart || !cart.length"></app-empty-cart-alert>
+<mat-spinner *ngIf="loading" class="mx-auto"></mat-spinner>
+<app-empty-cart-alert [display]="!loading && (!cart || !cart.length)"></app-empty-cart-alert>
 <div *ngIf="cart && cart.length" class="flex flex-wrap max-w-screen-lg items-center">
   <div class="md:w-1/2 md:pr-12 md:py-8 mb-10 md:mb-0">
     <app-payment-info [free]="free"></app-payment-info>

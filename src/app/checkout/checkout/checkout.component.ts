@@ -9,6 +9,7 @@ import { FirebaseService } from 'src/app/core/firebase.service';
 export class CheckoutComponent implements OnInit {
   cart: any[];
   free = false;
+  loading = true;
 
   constructor(private firebase: FirebaseService) {}
 
@@ -18,6 +19,9 @@ export class CheckoutComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.firebase.getCart().subscribe((value) => (this.cart = value));
+    this.firebase.getCart().subscribe((value) => {
+      this.cart = value;
+      this.loading = false;
+    });
   }
 }

@@ -8,7 +8,7 @@ import { FirebaseService } from 'src/app/core/firebase.service';
 })
 export class OrdersComponent implements OnInit {
   orders: any[];
-  panelOpenState = false;
+  loading = true;
 
   constructor(private firebase: FirebaseService) {}
 
@@ -25,6 +25,9 @@ export class OrdersComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.firebase.getOrders().subscribe((value) => (this.orders = value));
+    this.firebase.getOrders().subscribe((value) => {
+      this.orders = value;
+      this.loading = false;
+    });
   }
 }

@@ -1,8 +1,12 @@
-<mat-button-toggle-group vertical class="w-full" name="categories" aria-label="Products categories">
+<mat-button-toggle-group *ngIf="categories$ | async as categories; else indicator" vertical class="w-full"
+  name="categories" aria-label="Products categories">
   <mat-button-toggle (click)="current='all'">
     All Categories
   </mat-button-toggle>
-  <mat-button-toggle (click)="current=category" *ngFor="let category of categories | async">
+  <mat-button-toggle (click)="current=category" *ngFor="let category of categories">
     {{category | titlecase}}
   </mat-button-toggle>
 </mat-button-toggle-group>
+<ng-template #indicator>
+  <mat-spinner class="mx-auto"></mat-spinner>
+</ng-template>

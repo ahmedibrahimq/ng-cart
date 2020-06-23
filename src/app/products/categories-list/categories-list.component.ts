@@ -5,15 +5,17 @@ import { Observable } from 'rxjs';
 @Component({
   selector: 'app-categories-list',
   templateUrl: './categories-list.component.html',
-  styleUrls: ['./categories-list.component.scss']
+  styleUrls: ['./categories-list.component.scss'],
 })
 export class CategoriesListComponent implements OnInit {
   // tslint:disable-next-line: variable-name
   private _current: string;
 
-  categories: Observable<any[]>;
+  categories$: Observable<any[]>;
 
-  get current() { return this._current; }
+  get current() {
+    return this._current;
+  }
 
   set current(value: string) {
     this._current = value;
@@ -22,10 +24,9 @@ export class CategoriesListComponent implements OnInit {
 
   @Output() categoryChanged = new EventEmitter<string>();
 
-  constructor(private dbService: FirebaseService) { }
+  constructor(private dbService: FirebaseService) {}
 
   ngOnInit(): void {
-    this.categories = this.dbService.getCategories();
+    this.categories$ = this.dbService.getCategories();
   }
-
 }
