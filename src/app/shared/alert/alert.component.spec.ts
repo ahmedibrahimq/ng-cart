@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { EmptyCartAlertComponent } from './empty-cart-alert.component';
+import { EmptyCartAlertComponent } from './alert.component';
 
 describe('EmptyCartAlertComponent', () => {
   let component: EmptyCartAlertComponent;
@@ -8,9 +8,8 @@ describe('EmptyCartAlertComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ EmptyCartAlertComponent ]
-    })
-    .compileComponents();
+      declarations: [EmptyCartAlertComponent],
+    }).compileComponents();
   }));
 
   beforeEach(() => {
