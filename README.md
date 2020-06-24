@@ -45,7 +45,7 @@ I build this project to learn Angular. I've learned Angular by:
 [Firebase]: https://firebase.google.com/
 [Angular CLI]: https://github.com/angular/angular-cli
 [Firebase console]: https://console.firebase.google.com/
-[Learn Angular & TypeScript]: https://www.youtube.com/watch?v=k5E2AVpwsko
+[Angular & TypeScript]: https://www.youtube.com/watch?v=k5E2AVpwsko
 [Build your first Angular app]: https://scrimba.com/course/gyourfirstangularapp/
 [docs]: https://angular.io/docs
 [my Angular notes]: https://github.com/ahmedibrahimq/notes/blob/master/angular.md
