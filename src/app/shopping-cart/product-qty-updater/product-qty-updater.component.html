@@ -1,5 +1,11 @@
-<div style="align-content: space-between;display: flex;align-items: center;text-align: center;">
+<div *ngIf="quantitative else removeitem"
+  style="align-content: space-between;display: flex;align-items: center;text-align: center;">
   <button (click)="dec()" mat-flat-button color="primary">-</button>
   <span [style.width.%]="100">{{countInCart}}<span class="hidden sm:inline">&nbsp;in cart</span></span>
   <button (click)="inc()" mat-flat-button color="primary">+</button>
 </div>
+<ng-template #removeitem>
+  <button (click)="dec()" mat-button [style.width.%]="100" color="warn">
+    REMOVE FROM CART
+  </button>
+</ng-template>

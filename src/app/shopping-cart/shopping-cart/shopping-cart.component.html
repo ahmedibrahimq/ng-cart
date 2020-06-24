@@ -13,7 +13,8 @@
     <ng-container matColumnDef="qty">
       <th mat-header-cell *matHeaderCellDef> QTY </th>
       <td mat-cell *matCellDef="let product" [style.max-width.rem]="3">
-        <app-product-qty-updater [itemKey]="product.key"></app-product-qty-updater>
+        <app-product-qty-updater [itemKey]="product.key" [quantitative]="product.quantitative">
+        </app-product-qty-updater>
       </td>
       <td mat-footer-cell *matFooterCellDef> </td>
     </ng-container> -->
