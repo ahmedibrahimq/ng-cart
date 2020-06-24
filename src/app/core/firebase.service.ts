@@ -103,7 +103,12 @@ export class FirebaseService {
   }
 
   AddCartItem(item) {
-    const data = { title: item.title, unitPrice: item.price, quantity: 1 };
+    const data = {
+      title: item.title,
+      unitPrice: item.price,
+      quantitative: item.quantitative,
+      quantity: 1,
+    };
     return this.updateCartItem(item.key, data);
   }
 
