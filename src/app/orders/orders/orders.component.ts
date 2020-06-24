@@ -24,9 +24,13 @@ export class OrdersComponent implements OnInit {
       .reduce((acc, curr) => acc + curr, 0);
   }
 
+  private orderByDateDesc(orders: any[]) {
+    return orders.sort((o1, o2) => Date.parse(o2.key) - Date.parse(o1.key));
+  }
+
   ngOnInit(): void {
     this.firebase.getOrders().subscribe((value) => {
-      this.orders = value;
+      this.orders = this.orderByDateDesc(value);
       this.loading = false;
     });
   }

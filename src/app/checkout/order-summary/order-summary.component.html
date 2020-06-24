@@ -3,7 +3,8 @@
   <mat-list>
     <div *ngFor="let item of cart">
       <mat-list-item>
-        <span>{{item.quantity}} x {{item.title}}</span><span>{{item.unitPrice * item.quantity | currency}}</span>
+        <span>{{item.quantity}} x
+          {{item.title | titlecase}}</span><span>{{item.unitPrice * item.quantity | currency}}</span>
       </mat-list-item>
       <mat-divider></mat-divider>
     </div>

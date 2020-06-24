@@ -1,11 +1,10 @@
 <mat-card class="example-card overflow-hidden max-w-xs mx-auto">
-  <img mat-card-image src="https://source.unsplash.com/1000x1000/?food,organic" class="object-cover object-center h-48"
-    alt="Photo of a food">
+  <img mat-card-image [src]="data.image || ''" class="object-cover object-center h-48" [alt]="'photo of ' + data.title">
   <mat-card-content class="relative">
     <span class="bg-gray-500 text-white absolute bg-opacity-50 rounded px-1" [style.top.px]="-48">
       {{data.category}}
     </span>
-    <mat-card-title>{{data.title}}</mat-card-title>
+    <mat-card-title class="md:text-lg xl:text-2xl">{{data.title | titlecase}}</mat-card-title>
     <p>
       {{data.price | currency}}
     </p>
@@ -14,13 +13,16 @@
     <button *ngIf="!data.sold && !countInCart" (click)="add()" [style.width.%]="100" mat-flat-button color="primary">
       ADD TO CART
     </button>
-    <div *ngIf="countInCart"
+    <div *ngIf="countInCart && data.quantitative"
       style="align-content: space-between;display: flex;align-items: baseline;text-align: center;">
       <button (click)="dec()" mat-flat-button color="primary">-</button>
       <span [style.width.%]="100">{{countInCart}} in cart</span>
       <button (click)="inc()" mat-flat-button color="primary">+</button>
     </div>
-    <button [style.width.%]="100" [style.cursor]="'default'" *ngIf="data.sold" mat-stroked-button disableRipple
+    <button *ngIf="countInCart && !data.quantitative" (click)="dec()" mat-button [style.width.%]="100" color="warn">
+      REMOVE FROM CART
+    </button>
+    <button [style.width.%]="100" [style.cursor]="'default'" *ngIf="data.sold" mat-stroked-button disabled disableRipple
       color="warn">
       SOLD OUT
     </button>
