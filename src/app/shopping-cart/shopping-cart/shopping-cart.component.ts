@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FirebaseService } from 'src/app/core/firebase.service';
-import { CartStoreService } from 'src/app/core/cart-store.service';
 
 @Component({
   selector: 'app-shopping-cart',
@@ -13,10 +12,7 @@ export class ShoppingCartComponent implements OnInit {
 
   displayedColumns: string[] = ['item', 'qty', 'cost'];
 
-  constructor(
-    public cartStore: CartStoreService,
-    public firebase: FirebaseService
-  ) {}
+  constructor(public firebase: FirebaseService) {}
 
   getTotalCost() {
     if (this.cart) {

@@ -1,7 +1,7 @@
 <h1 class="text-2xl sm:text-4xl mb-6 font-medium">Shopping Cart</h1>
 <mat-spinner *ngIf="loading" class="mx-auto"></mat-spinner>
 <app-alert *ngIf="!loading && (!cart || !cart.length)"></app-alert>
-<div *ngIf="cart && cart.length" class=" max-w-screen-lg mx-auto p-6 border clearfix">
+<div *ngIf="cart && cart.length" class=" max-w-screen-lg mx-auto sm:p-6 sm:border clearfix">
   <table mat-table [dataSource]="cart" class="mb-6 w-full">
     <!-- Item Column -->
     <ng-container matColumnDef="item">
