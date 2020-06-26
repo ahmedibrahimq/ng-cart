@@ -1,0 +1,38 @@
+[
+  {
+    "key": "0",
+    "category": "books",
+    "image": "https://source.unsplash.com/34fc5V7pCoQ/330x330",
+    "price": 33,
+    "quantitative": true,
+    "sold": false,
+    "title": "healthy cookbook"
+  },
+  {
+    "key": "1",
+    "category": "books",
+    "image": "https://source.unsplash.com/ToSZHRmxnSM/330x330",
+    "price": 67,
+    "quantitative": true,
+    "sold": false,
+    "title": "how to: grow planets"
+  },
+  {
+    "key": "2",
+    "category": "crafts",
+    "image": "https://source.unsplash.com/RKfJhC_bF2A/330x330",
+    "price": 21,
+    "quantitative": false,
+    "sold": false,
+    "title": "homemade GYM"
+  },
+  {
+    "key": "3",
+    "category": "tickets",
+    "image": "https://pluralsight2.imgix.net/paths/images/ng-conf-2019-2c14f96341.png?w=330",
+    "price": 450,
+    "quantitative": true,
+    "sold": true,
+    "title": "ng-conf 2021 (round1)"
+  }
+]

@@ -15,11 +15,13 @@ import { SharedModule } from './shared/shared.module';
 import { CheckoutModule } from './checkout/checkout.module';
 import { OrdersModule } from './orders/orders.module';
 import { AdminModule } from './admin/admin.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [AppComponent, HeaderComponent],
   imports: [
     BrowserModule,
+    HttpClientModule,
     SharedModule,
     MaterialModule,
     ProductsModule,

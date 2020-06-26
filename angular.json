@@ -33,6 +33,14 @@
             "scripts": []
           },
           "configurations": {
+            "mock": {
+              "fileReplacements": [
+                {
+                  "replace": "src/app/core/firebase.service.ts",
+                  "with": "src/app/core/firebase.mock.service.ts"
+                }
+              ]
+            },
             "production": {
               "fileReplacements": [
                 {
@@ -72,6 +80,9 @@
             "browserTarget": "shopping-cart:build"
           },
           "configurations": {
+            "mock": {
+              "browserTarget": "shopping-cart:build:mock"
+            },
             "production": {
               "browserTarget": "shopping-cart:build:production"
             }

@@ -8,21 +8,35 @@ Minimal Online store made with [Angular], [RxJS], [Angular Material], [tailwindc
 This project was generated with [Angular CLI] version 9.1.8.
 
 ## Getting Started
+You can either set up Firebase for this app or run it with the mock environment.  
+
+### Run the mock environment
+*Skip this section if you want to [run the app with Firebase](#configure-firebase).*  
+
+To run the app without integrating Firebase:
+
+1. Run `npm install`
+2. Run `npm run mock` or `ng serve -c mock`. Navigate to `http://localhost:4200/`.
+
+### Configure Firebase
+
+To run the app with Firebase:
+
 1. Go to [Firebase console] and create a new project with a <ins>Realtime Database</ins>.
-2. Add your Firebase config to the app
+2. Run `npm install`
+3. Add your Firebase config to the app
    1. Find your configuration in project settings under **Firebase SDK snippet**.
    2. Put it in `src/config/db.sample.json` and rename the file to `db.json`.
-   3. tweak the `.firebaserc` file to match your Firebase project's name, id, and hosting.
-3. Run `npm install`
 4. Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`.
 
 ## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+   - Use the `--prod` flag for a production build.
+   - Use `-c mock` for a mock build.
 
 ## Deploy
 
-Run `ng deploy` to deploy the application to Firebase hosting.
+You need to [Configure Firebase](#Configure-Firebase) first. Then run `ng deploy` to deploy the application to Firebase hosting.
 
 ## Learn Angular
 I build this project to learn Angular. I've learned Angular by:
