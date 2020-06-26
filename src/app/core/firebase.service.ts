@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/database/';
 import { Observable } from 'rxjs';
-import { map, reduce } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
+import { Product, CartItem, Order } from '../shared/interfaces';
 
 @Injectable({
   providedIn: 'root',
@@ -18,16 +19,19 @@ export class FirebaseService {
     }
   }
 
-  getProducts(): Observable<any[]> {
+  getProducts(): Observable<Product[]> {
     return this.db
       .list(this.productsUrl)
       .snapshotChanges()
       .pipe(
-        map((changes) =>
-          changes.map((change) => ({
-            key: change.payload.key,
-            ...(change.payload.val() as {}),
-          }))
+        map((products) =>
+          products.map(
+            (product) =>
+              ({
+                key: product.payload.key,
+                ...(product.payload.val() as {}),
+              } as Product)
+          )
         )
       );
   }
@@ -40,16 +44,19 @@ export class FirebaseService {
     return localStorage.getItem('cartKey');
   }
 
-  getCart(): Observable<any[]> {
+  getCart(): Observable<CartItem[]> {
     return this.db
       .list(`${this.cartsUrl}/${this.getCartKey()}`)
       .snapshotChanges()
       .pipe(
-        map((changes) =>
-          changes.map((change) => ({
-            key: change.payload.key,
-            ...(change.payload.val() as {}),
-          }))
+        map((cart) =>
+          cart.map(
+            (item) =>
+              ({
+                key: item.payload.key,
+                ...(item.payload.val() as {}),
+              } as CartItem)
+          )
         )
       );
   }
@@ -58,22 +65,24 @@ export class FirebaseService {
     return this.db.list(`${this.cartsUrl}/${this.getCartKey()}`).remove();
   }
 
-  getOrders() {
+  getOrders(): Observable<Order[]> {
     return this.db
       .list(`${this.ordersUrl}/${this.getCartKey()}`)
       .snapshotChanges()
       .pipe(
-        map((changes) =>
-          changes.map((change) => ({
-            key: change.payload.key,
-            items: change.payload.val(),
-          }))
+        map((orders) =>
+          orders.map(
+            (order) =>
+              ({
+                key: order.payload.key,
+                items: order.payload.val(),
+              } as Order)
+          )
         )
       );
   }
 
-  addOrder(order) {
-    // console.log(this.ordersUrl, this.getCartKey(), 'order');
+  addOrder(order: CartItem[]) {
     this.db.database
       .ref(this.ordersUrl)
       .child(this.getCartKey())
@@ -84,25 +93,25 @@ export class FirebaseService {
     return this.getCart().pipe(
       map((cart) =>
         cart
-          .map((item: any) => item.quantity)
+          .map((item: CartItem) => item.quantity)
           .reduce((acc, curr) => acc + curr, 0)
       )
     );
   }
 
-  getCartItem(key): Observable<any> {
+  getCartItem(key: string): Observable<any> {
     return this.db
       .object(`${this.cartsUrl}/${this.getCartKey()}/${key}`)
       .valueChanges();
   }
 
-  getCartItemCount(key): Observable<number> {
+  getCartItemCount(key: string): Observable<number> {
     return this.getCartItem(key).pipe(
       map((item) => (item ? item.quantity : 0))
     );
   }
 
-  AddCartItem(item) {
+  AddCartItem(item: Product) {
     const data = {
       title: item.title,
       unitPrice: item.price,
